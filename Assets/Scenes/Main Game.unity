@@ -1097,8 +1097,6 @@ TilemapRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1120,7 +1118,6 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -5
@@ -3306,6 +3303,10 @@ PrefabInstance:
     - target: {fileID: 1416050865525493428, guid: f11b2bf8fa6aa124380b4539eba7f756, type: 3}
       propertyPath: m_Name
       value: Damage Pick up
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106789330157742728, guid: f11b2bf8fa6aa124380b4539eba7f756, type: 3}
+      propertyPath: healthChange
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 7512571091395360270, guid: f11b2bf8fa6aa124380b4539eba7f756, type: 3}
       propertyPath: m_LocalPosition.x
