@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -71,7 +72,7 @@ public class PlayerHealth : MonoBehaviour
 
         // TODO: Print the player's starting health to the Console.
 
-
+        Debug.Log("Starting Health:currentHP");
 
         if (movement == null)
         {
@@ -177,7 +178,7 @@ public class PlayerHealth : MonoBehaviour
         // Include both the minimum and maximum values.
         int damageAmount = Random.Range(minimumDebugDamage,maximumDebugDamage);
 
-        Debug.Log(damageAmount);
+        Debug.Log("Debug Damage:damageAmount");
         // TODO: Print the randomly generated damage amount to the Console.
 
 
@@ -190,12 +191,12 @@ public class PlayerHealth : MonoBehaviour
         // TODO: Give healAmount a random value between
         // minimumDebugHeal and maximumDebugHeal.
         // Include both the minimum and maximum values.
-        int healAmount = 0;
+        int healAmount = Random.Range(minimumDebugHeal, maximumDebugHeal);
 
 
 
         // TODO: Print the randomly generated healing amount to the Console.
-
+        Debug.Log("Debug Heal:healAmount");
 
 
         Heal(healAmount);
@@ -210,16 +211,19 @@ public class PlayerHealth : MonoBehaviour
 
         // TODO: Subtract the damage amount from the player's current health.
 
-
+        currentHP -= amount;
 
         // TODO: Check whether the player's health is below zero.
         // If it is, set the player's health to zero.
 
-
+            if (currentHP < 0)
+        {
+            currentHP = 0;
+        }
 
         // TODO: If debug logs are enabled, print the amount of damage taken
         // and the player's current health.
-
+        Debug.Log("Damage Taken:amount");
 
 
         UpdateHealthUI();
