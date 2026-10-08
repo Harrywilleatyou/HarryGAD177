@@ -106,15 +106,6 @@ public class PlayerKills : MonoBehaviour
     }
 
 
-
-    private void UpdateKillsUI()
-
-    {
-
-
-
-
-    }
     public void DebugAddKill()
     {
         // TODO: Call AddKills and give it debugAddAmount.
