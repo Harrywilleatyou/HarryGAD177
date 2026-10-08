@@ -55,7 +55,7 @@ public class PlayerKills : MonoBehaviour
         // call the function that adds kills.
         if (Keyboard.current[addKillKey].wasPressedThisFrame)
         {
-            AddKills();
+            AddKills(debugAddAmount);
 
 
         }
@@ -97,6 +97,24 @@ public class PlayerKills : MonoBehaviour
 
     }
 
+    public int GetCurrentKills()
+
+    {
+
+        return currentKills;
+
+    }
+
+
+
+    private void UpdateKillsUI()
+
+    {
+
+
+
+
+    }
     public void DebugAddKill()
     {
         // TODO: Call AddKills and give it debugAddAmount.
