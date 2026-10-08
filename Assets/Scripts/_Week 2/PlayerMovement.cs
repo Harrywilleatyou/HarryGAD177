@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -19,6 +20,10 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
     private Vector2 moveInput;
+
+    public AudioSource audioSource;
+    public AudioClip walkSound;
+    public bool showDebugWalkLogs = true;
 
     private void Awake()
     {
@@ -89,6 +94,11 @@ public class PlayerMovement : MonoBehaviour
             x = 1f;
         }
 
+        if (y + x > 0)
+        {
+            PlayWalkSound();
+        }
+
 
         // Combine the horizontal and vertical values into one movement direction.
         moveInput = new Vector2(x, y);
@@ -136,6 +146,25 @@ public class PlayerMovement : MonoBehaviour
         else if (moveInput.x < 0f)
         {
             spriteRenderer.flipX = faceRightByDefault;
+        }
+    }
+    private void PlayWalkSound()
+    {
+        if (audioSource == null)
+        {
+            return;
+        }
+
+        if (walkSound == null)
+        {
+            return;
+        }
+
+        audioSource.PlayOneShot(walkSound);
+
+        if (showDebugWalkLogs == true)
+        {
+            Debug.Log("Walk sound played.");
         }
     }
 }
