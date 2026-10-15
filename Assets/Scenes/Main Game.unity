@@ -316,6 +316,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8667591997282453061, guid: 5321946108876674e969b3bfb89c0b53, type: 3}
+      propertyPath: debugXpAmount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8667591997282453061, guid: 5321946108876674e969b3bfb89c0b53, type: 3}
       propertyPath: gameOverLevelText
       value: 
       objectReference: {fileID: 1854617384}
