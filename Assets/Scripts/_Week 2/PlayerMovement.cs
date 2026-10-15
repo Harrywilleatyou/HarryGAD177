@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
 
     public AudioSource audioSource;
     public AudioClip walkSound;
-    public bool showDebugWalkLogs = true;
+    public bool showDebugWalkLogs = false;
 
     private void Awake()
     {
