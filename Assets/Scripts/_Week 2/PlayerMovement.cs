@@ -63,6 +63,7 @@ public class PlayerMovement : MonoBehaviour
         {
             // Set the vertical movement direction to move up.
             y = 1f;
+            PlayWalkSound();
         }
 
         // TODO: Add an if statement that checks whether the player
@@ -72,6 +73,7 @@ public class PlayerMovement : MonoBehaviour
         {
             // Set the vertical movement direction to move up.
             y = -1f;
+            PlayWalkSound();
         }
 
 
@@ -82,6 +84,7 @@ public class PlayerMovement : MonoBehaviour
         {
             // Set the vertical movement direction to move up.
             x = -1f;
+            PlayWalkSound();
         }
 
 
@@ -92,16 +95,14 @@ public class PlayerMovement : MonoBehaviour
         {
             // Set the vertical movement direction to move up.
             x = 1f;
-        }
-
-        if (y + x > 0)
-        {
             PlayWalkSound();
         }
 
+        
 
-        // Combine the horizontal and vertical values into one movement direction.
-        moveInput = new Vector2(x, y);
+
+            // Combine the horizontal and vertical values into one movement direction.
+            moveInput = new Vector2(x, y);
 
         // Stop diagonal movement from being faster.
         if (moveInput.sqrMagnitude > 1f)
