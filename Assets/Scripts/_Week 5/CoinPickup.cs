@@ -14,13 +14,16 @@ public class CoinPickup : MonoBehaviour
     private void Awake()
     {
         // TODO: Get the Collider2D component from this GameObject.
-        Collider2D col = null;
+        Collider2D col = GetComponent<Collider2D>();
 
 
 
         // TODO: Check that col is not null.
         // If it exists, set the Collider2D to be a trigger.
-
+        if (col != null)
+        {
+            col.isTrigger = true;
+        }
 
     }
 
@@ -30,17 +33,23 @@ public class CoinPickup : MonoBehaviour
         // has the Player tag.
         // If it does not, stop this function.
 
-
+        if (!other.CompareTag("Player"))
+        {
+            return;
+        }
 
         // TODO: Get the PlayerMoney component from the object
         // that entered the trigger.
-        PlayerMoney money = null;
+        PlayerMoney money = other.GetComponent<PlayerMoney>();
 
 
 
         // TODO: If money is null, try to find the
         // PlayerMoney component in the scene.
-
+        if (money == null)
+        {
+            money = GameObject.FindAnyObjectByType<PlayerMoney>();
+        }
 
 
         // TODO: Check that money is not null.
@@ -48,7 +57,16 @@ public class CoinPickup : MonoBehaviour
         // - Add moneyAmount to the player's money.
         // - Print a debug message if debug logs are enabled.
 
+        if (money != null)
+        {
 
+            money.AddMoney(moneyAmount);
+            
+            if (showDebugLogs == true)
+            {
+                Debug.Log("Money Get");
+            }
+        }
 
 
 
