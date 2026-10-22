@@ -31,7 +31,7 @@ public class SingleMeleeAutoAttack : MonoBehaviour
     public bool flipSlashWhenFacingLeft = true;
 
     [Header("Debug")]
-    public bool showDebugLogs = true;
+    public bool showDebugLogs = false;
 
     [Header("Debug View")]
     public float attackTimer = 0f;

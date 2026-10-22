@@ -216,6 +216,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 732276342429816324, guid: 5321946108876674e969b3bfb89c0b53, type: 3}
+      propertyPath: showDebugLogs
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 732276342429816324, guid: 5321946108876674e969b3bfb89c0b53, type: 3}
       propertyPath: playerSpriteRenderer
       value: 
       objectReference: {fileID: 181675687}
@@ -286,7 +290,7 @@ PrefabInstance:
     - target: {fileID: 5232989873491534599, guid: 5321946108876674e969b3bfb89c0b53, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 4949722a6943ef44a9ff9696747a6f04, type: 3}
+      objectReference: {fileID: -7317384076726042226, guid: 73298f2df7111124090b266daac8df0d, type: 3}
     - target: {fileID: 5665016833282624604, guid: 5321946108876674e969b3bfb89c0b53, type: 3}
       propertyPath: m_Interpolate
       value: 1
@@ -578,7 +582,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -4462681707309959139, guid: 8ff923f66ffef6a48a59aea7c62edb6c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
