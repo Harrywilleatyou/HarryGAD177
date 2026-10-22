@@ -38,9 +38,11 @@ public class PlayerHealthTouchEffect : MonoBehaviour
         // TODO: Check whether the object that entered the trigger
         // has the Player tag.
         // If it does not, stop this function.
+        
 
-        if (other.CompareTag("Player"))
+        if (!other.CompareTag("Player"))
         {
+
             return;
         }
 
@@ -52,7 +54,7 @@ public class PlayerHealthTouchEffect : MonoBehaviour
 
         // TODO: Check whether playerHealth is null.
         // If it is, stop this function.
-        if (playerHealth != null)
+        if (playerHealth == null)
         {
             return;
         }

@@ -10,7 +10,7 @@ public class MeleeSlash : MonoBehaviour
     public int damage = 5;
 
     [Header("Debug")]
-    public bool showDebugLogs = false;
+    public bool showDebugLogs = true;
 
     private void Awake()
     {
