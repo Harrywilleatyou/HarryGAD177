@@ -213,7 +213,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 732276342429816324, guid: 5321946108876674e969b3bfb89c0b53, type: 3}
       propertyPath: slashOffsetX
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 732276342429816324, guid: 5321946108876674e969b3bfb89c0b53, type: 3}
       propertyPath: showDebugLogs
