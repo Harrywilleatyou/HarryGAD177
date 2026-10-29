@@ -36,16 +36,16 @@ public class EnemyChase : MonoBehaviour
         // TODO: Check if animator is null.
         // If it is, get the Animator component from this GameObject.
 
-        if (animator = null)
+        if (animator == null)
             {
-                GetComponent<Animator>();
+                animator = GetComponent<Animator>();
             }
 
         // TODO: Check if spriteRenderer is null.
         // If it is, get the SpriteRenderer from this GameObject or its children.
-        if (spriteRenderer = null)
+        if (spriteRenderer == null)
         {
-            GetComponent<SpriteRenderer>();
+            spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
     }
@@ -106,18 +106,17 @@ public class EnemyChase : MonoBehaviour
             return;
         }
 
-        // TODO: Create a bool that checks whether the enemy is moving.
-        bool isMoving = false;
+
 
         // TODO: Update the Animator's isMoving parameter.
 
-        if (moveSpeed != 0)
+        if (rb.linearVelocity.x != 0 || rb.linearVelocity.y != 0) 
         {
-            isMoving = true;
+            animator.SetBool("isMoving", true);
         }
         else
         {
-            isMoving = false;
+            animator.SetBool("isMoving", false);
         }
     }
 
