@@ -13,6 +13,7 @@ public class MainMenu : MonoBehaviour
     {
         // TODO: Load the scene stored in firstSceneName.
 
+        SceneManager.LoadScene(firstSceneName);
 
     }
 
