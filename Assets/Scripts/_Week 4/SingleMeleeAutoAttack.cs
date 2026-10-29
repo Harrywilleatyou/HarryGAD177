@@ -180,13 +180,15 @@ public class SingleMeleeAutoAttack : MonoBehaviour
         if (flipSlashWhenFacingLeft == true)
         {
             // TODO: Get the SpriteRenderer from the slash object.
-            SpriteRenderer slashRenderer = slashObj.GetComponent<SpriteRenderer>();
 
+            SpriteRenderer slashRenderer = slashObj.GetComponentInChildren<SpriteRenderer>();
+            
             // TODO: Check that slashRenderer is not null.
             // If it exists, set its flipX value based on facingRight.
             if (slashRenderer != null)
             {
-                if (facingRight == true)
+                Debug.Log(slashRenderer + " renderer");
+                if (direction == 1f)
                 {
                     slashRenderer.flipX = false;
                 }
@@ -195,11 +197,15 @@ public class SingleMeleeAutoAttack : MonoBehaviour
                     slashRenderer.flipX = true;
                 }
             }
+            else
+            {
+                Debug.Log("fucky wucky");
+            }
 
         }
 
         // TODO: Get the MeleeSlash script from the slash object.
-        MeleeSlash slash = slashObj.GetComponent<MeleeSlash>(); ;
+        MeleeSlash slash = slashObj.GetComponent<MeleeSlash>(); 
 
         // TODO: Check that slash is not null.
         // If it exists, call Initialize and give it the player's damage.
