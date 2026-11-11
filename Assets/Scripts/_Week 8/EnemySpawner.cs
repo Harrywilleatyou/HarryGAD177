@@ -77,7 +77,9 @@ public class EnemySpawner : MonoBehaviour
         // TODO: Check that gameManager is not null.
         // If it exists, call AddSpawner.
         if (gameManager != null)
-            AddSpawner();
+        {
+            gameManager.AddSpawner();
+        }
 
     }
 
@@ -154,12 +156,12 @@ public class EnemySpawner : MonoBehaviour
         }
 
         // TODO: Play the animation stored in idleAnimationName.
-        
 
+        animator.SetTrigger(idleAnimationName);
 
         // TODO: If debug logs are enabled, print the animation being played.
         if (showDebugLogs == true)
-            Debug.Log(idleAnimationName + " animation playing");
+            Debug.Log(idleAnimationName + " animation played");
 
     }
 
@@ -173,37 +175,54 @@ public class EnemySpawner : MonoBehaviour
 
         // TODO: Check whether Keyboard.current is null.
         // If it is, stop this function.
-
+        if (Keyboard.current == null)
+            return;
 
 
         // TODO: Check whether toggleSpawnKey was pressed.
         // If it was:
         // - Toggle spawningEnabled between true and false.
         // - Print the new value if debug logs are enabled.
-
+        if (Keyboard.current.pKey.wasPressedThisFrame)
+        {
+            spawningEnabled = !spawningEnabled;
+            if (showDebugLogs == true)
+                Debug.Log("spawningEnabled set to " + spawningEnabled);
+        }
 
 
         // TODO: Check whether spawnOnceKey was pressed.
         // If it was:
         // - Call SpawnEnemy.
         // - Print a debug message if debug logs are enabled.
-
+        if (Keyboard.current.oKey.wasPressedThisFrame)
+        {
+            SpawnEnemy();
+            if (showDebugLogs == true)
+                Debug.Log("enemy debug spawned");
+        }
 
 
         // TODO: Check whether destroyEnemiesKey was pressed.
         // If it was, call DestroySpawnedEnemies.
-
+        if (Keyboard.current.iKey.wasPressedThisFrame)
+        {
+            DestroySpawnedEnemies();
+            if (showDebugLogs == true)
+                Debug.Log("enemies debug destroyed");
+        }
 
     }
 
     public void StopSpawning()
     {
         // TODO: Set spawningEnabled to false.
-
+        spawningEnabled = false;
 
 
         // TODO: If debug logs are enabled, print that spawning has stopped.
-
+        if (showDebugLogs == true)
+            Debug.Log("Spawning Stopped");
 
     }
 
@@ -211,7 +230,8 @@ public class EnemySpawner : MonoBehaviour
     {
         // TODO: Check that gameManager is not null.
         // If it exists, call RemoveSpawner.
-
+        if (gameManager != null)
+            gameManager.RemoveSpawner();
 
     }
 
@@ -221,7 +241,12 @@ public class EnemySpawner : MonoBehaviour
         // If it is:
         // - Print a warning if debug logs are enabled.
         // - Stop this function.
-
+        if (enemyPrefab = null)
+        {
+            if (showDebugLogs == true)
+                Debug.LogWarning("Spawner failed to find enemyPrefab");
+            return;
+        }
 
 
         // Generate a random position inside the spawn radius.
@@ -230,7 +255,7 @@ public class EnemySpawner : MonoBehaviour
         // TODO: Calculate the final spawn position using
         // this GameObject's position and randomOffset.
         Vector3 spawnPosition = new Vector3(0, 0, 0);
-
+        
 
 
         // TODO: Instantiate enemyPrefab at spawnPosition.
