@@ -19636,6 +19636,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6703422934471519277, guid: 8ff923f66ffef6a48a59aea7c62edb6c, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703422934471519277, guid: 8ff923f66ffef6a48a59aea7c62edb6c, type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703422934471519277, guid: 8ff923f66ffef6a48a59aea7c62edb6c, type: 3}
       propertyPath: m_Size.x
       value: 0.7
       objectReference: {fileID: 0}
@@ -19646,7 +19654,7 @@ PrefabInstance:
     - target: {fileID: 6703422934471519277, guid: 8ff923f66ffef6a48a59aea7c62edb6c, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -2048697980280870781, guid: e4bc734fdeae23b49bae6257dc62acb9, type: 3}
+      objectReference: {fileID: 6873999004024732710, guid: 1e0177df0d3d1a74f8c4b0bccabe7424, type: 3}
     - target: {fileID: 8207825158515281786, guid: 8ff923f66ffef6a48a59aea7c62edb6c, type: 3}
       propertyPath: m_Name
       value: Enemy
