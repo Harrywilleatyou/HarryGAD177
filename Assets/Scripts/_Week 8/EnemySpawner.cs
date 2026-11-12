@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,7 +10,7 @@ public class EnemySpawner : MonoBehaviour
     [Header("Spawner Settings")]
     public GameObject enemyPrefab;
     public float spawnInterval = 2f;
-    public float spawnRadius = 8f;
+    public float spawnRadius = 1f;
 
     [Header("Animation")]
     public Animator animator;
@@ -18,7 +19,7 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("Spawn Feedback")]
     public GameObject spawnParticlePrefab;
-    public float spawnParticleLifetime = 2f;
+    public float spawnParticleLifetime = 0.5f;
     public AudioClip spawnSound;
     public AudioSource audioSource;
 
@@ -157,7 +158,7 @@ public class EnemySpawner : MonoBehaviour
 
         // TODO: Play the animation stored in idleAnimationName.
 
-        animator.SetTrigger(idleAnimationName);
+       // animator.SetTrigger(idleAnimationName);
 
         // TODO: If debug logs are enabled, print the animation being played.
         if (showDebugLogs == true)
@@ -241,7 +242,7 @@ public class EnemySpawner : MonoBehaviour
         // If it is:
         // - Print a warning if debug logs are enabled.
         // - Stop this function.
-        if (enemyPrefab = null)
+        if (enemyPrefab == null)
         {
             if (showDebugLogs == true)
                 Debug.LogWarning("Spawner failed to find enemyPrefab");
@@ -254,26 +255,27 @@ public class EnemySpawner : MonoBehaviour
 
         // TODO: Calculate the final spawn position using
         // this GameObject's position and randomOffset.
-        Vector3 spawnPosition = new Vector3(0, 0, 0);
-        
+        Vector3 spawnPosition = this.transform.position * randomOffset;
 
 
         // TODO: Instantiate enemyPrefab at spawnPosition.
         // Store the newly created GameObject in enemyObject.
-        GameObject enemyObject = null;
+       
+        GameObject enemyObject = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
 
 
 
         // TODO: Add enemyObject to the spawnedEnemies collection.
-
+        spawnedEnemies.Add(enemyObject);
 
 
         // TODO: Call PlaySpawnFeedback and give it spawnPosition.
-
+        PlaySpawnFeedback(spawnPosition);
 
 
         // TODO: If debug logs are enabled, print where the enemy spawned.
-
+        if (showDebugLogs == true)
+            Debug.Log("Enemy spawned at " + spawnPosition);
 
     }
 
@@ -283,7 +285,10 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < spawnedEnemies.Count; i++)
         {
             // TODO: Check that the enemy at position i is not null.
-
+            if (spawnedEnemies[i] == null)
+                return;
+            else
+                Destroy(spawnedEnemies[i]);
 
 
             // TODO: Destroy the enemy at position i.
@@ -292,11 +297,12 @@ public class EnemySpawner : MonoBehaviour
         }
 
         // TODO: Clear the spawnedEnemies collection.
-
+        spawnedEnemies.Clear();
 
 
         // TODO: If debug logs are enabled, print that all spawned enemies were destroyed.
-
+        if (showDebugLogs == true)
+            Debug.Log("All enemies destroyed");
 
     }
 
@@ -307,22 +313,26 @@ public class EnemySpawner : MonoBehaviour
         {
             // TODO: Instantiate spawnParticlePrefab at spawnPosition.
             // Store the newly created GameObject in particleObject.
-            GameObject particleObject = null;
+            GameObject particleObject = Instantiate(spawnParticlePrefab, spawnPosition, Quaternion.identity);   
 
 
 
             // TODO: Destroy particleObject after spawnParticleLifetime seconds.
-
+            Destroy(particleObject, spawnParticleLifetime);
 
         }
 
         // TODO: Check that spawnSound and audioSource are not null.
         // If they exist, play spawnSound using the AudioSource.
-
+        if (spawnSound && audioSource != null)
+        {
+            audioSource.Play();
+        }
 
 
         // TODO: If debug logs are enabled, print that the spawn feedback played.
-
+        if (showDebugLogs == true)
+            Debug.Log("Spawn feedbacl played");
 
     }
 
