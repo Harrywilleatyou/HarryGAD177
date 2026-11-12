@@ -10,12 +10,15 @@ public class EnemySpawner : MonoBehaviour
     [Header("Spawner Settings")]
     public GameObject enemyPrefab;
     public float spawnInterval = 2f;
-    public float spawnRadius = 1f;
+    public float spawnRadius = 5f;
+    public float spawnRangeUp = 3f;
+    public float spawnRangeSide = 3f;
 
     [Header("Animation")]
     public Animator animator;
     public bool playIdleAnimationOnStart = true;
     public string idleAnimationName = "Idle";
+    public bool particleOn = false;
 
     [Header("Spawn Feedback")]
     public GameObject spawnParticlePrefab;
@@ -28,8 +31,8 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("Debug")]
     public bool spawningEnabled = true;
-    public bool enableDebugKeys = true;
-    public bool showDebugLogs = true;
+    public bool enableDebugKeys = false;
+    public bool showDebugLogs = false;
 
     public Key toggleSpawnKey = Key.P;
     public Key spawnOnceKey = Key.O;
@@ -60,7 +63,7 @@ public class EnemySpawner : MonoBehaviour
         // TODO: Check if gameManager is null.
         // If it is, find the GameManager in the scene.
         if (gameManager == null)
-            gameManager = GetComponent<GameManager>();
+            gameManager = GameObject.FindAnyObjectByType<GameManager>();
 
     }
 
@@ -251,12 +254,13 @@ public class EnemySpawner : MonoBehaviour
 
 
         // Generate a random position inside the spawn radius.
-        Vector2 randomOffset = Random.insideUnitCircle * spawnRadius;
+        Vector2 randomOffsetY = Random.insideUnitCircle * spawnRangeUp;
+        Vector2 randomOffsetX = Random.insideUnitCircle * spawnRangeSide;
 
         // TODO: Calculate the final spawn position using
         // this GameObject's position and randomOffset.
-        Vector3 spawnPosition = this.transform.position * randomOffset;
-
+        Vector3 spawnPosition = new Vector3(this.transform.position.x + randomOffsetX.x, this.transform.position.y + randomOffsetY.y, this.transform.position.z);
+            
 
         // TODO: Instantiate enemyPrefab at spawnPosition.
         // Store the newly created GameObject in enemyObject.
@@ -309,7 +313,7 @@ public class EnemySpawner : MonoBehaviour
     private void PlaySpawnFeedback(Vector3 spawnPosition)
     {
         // TODO: Check that spawnParticlePrefab is not null.
-        if (spawnParticlePrefab != null)
+        if (spawnParticlePrefab != null && particleOn == true)
         {
             // TODO: Instantiate spawnParticlePrefab at spawnPosition.
             // Store the newly created GameObject in particleObject.

@@ -8,6 +8,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2763483081581979620, guid: 8ff923f66ffef6a48a59aea7c62edb6c, type: 3}
+      propertyPath: applyKnockback
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1382355918685280040, guid: 8ff923f66ffef6a48a59aea7c62edb6c, type: 3}
+      propertyPath: moveSpeed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2248978954845707533, guid: 8ff923f66ffef6a48a59aea7c62edb6c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.555
@@ -48,6 +56,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3448121597785604173, guid: 8ff923f66ffef6a48a59aea7c62edb6c, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6703422934471519277, guid: 8ff923f66ffef6a48a59aea7c62edb6c, type: 3}
       propertyPath: m_FlipX
       value: 0
@@ -68,6 +80,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 6873999004024732710, guid: 1e0177df0d3d1a74f8c4b0bccabe7424, type: 3}
+    - target: {fileID: 7028387964393524517, guid: 8ff923f66ffef6a48a59aea7c62edb6c, type: 3}
+      propertyPath: expPrefab
+      value: 
+      objectReference: {fileID: 1333049728427612191, guid: 87ae6caf24d6989448d2900d920c7a95, type: 3}
+    - target: {fileID: 7028387964393524517, guid: 8ff923f66ffef6a48a59aea7c62edb6c, type: 3}
+      propertyPath: showDebugLogs
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8207825158515281786, guid: 8ff923f66ffef6a48a59aea7c62edb6c, type: 3}
       propertyPath: m_Name
       value: Enemy Variant
