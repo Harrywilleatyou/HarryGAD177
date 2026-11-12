@@ -9,7 +9,7 @@ public class EnemyChase : MonoBehaviour
     // Complete each section marked TODO.
 
     [Header("Movement")]
-    public float moveSpeed = 2f;
+    public float moveSpeed = 1f;
 
     [Header("Target")]
     public Transform target;

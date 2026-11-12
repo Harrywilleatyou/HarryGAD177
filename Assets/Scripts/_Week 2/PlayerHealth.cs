@@ -13,6 +13,10 @@ public class PlayerHealth : MonoBehaviour
     public int maxHP = 10;
     public int currentHP;
 
+    [Header("IFrames")]
+    public float iFrame = 1;
+    public float iFrameMax = 150;
+
     [Header("Health UI")]
     public Slider healthSlider;
     public bool useHealthSlider = true;
@@ -111,6 +115,8 @@ public class PlayerHealth : MonoBehaviour
     private void Update()
     {
         HandleDebugInput();
+        if (iFrame < iFrameMax)
+            iFrame++;
     }
 
     private void HandleDebugInput()
@@ -213,6 +219,7 @@ public class PlayerHealth : MonoBehaviour
 
         currentHP -= amount;
 
+        iFrame = 0;
         // TODO: Check whether the player's health is below zero.
         // If it is, set the player's health to zero.
 

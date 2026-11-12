@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -15,6 +16,7 @@ public class EnemyHealth : MonoBehaviour
     public int xpReward = 5;
     public int moneyReward = 1;
     public int killReward = 1;
+    public GameObject expPrefab;
 
     [Header("Reward References")]
     public PlayerExperience playerExperience;
@@ -46,7 +48,7 @@ public class EnemyHealth : MonoBehaviour
 
     [Header("Debug")]
     public bool enableDebugKeys = true;
-    public bool showDebugLogs = true;
+    public bool showDebugLogs = false;
     public Key debugDamageKey = Key.U;
     public int debugDamageAmount = 1;
 
@@ -86,7 +88,7 @@ public class EnemyHealth : MonoBehaviour
 
         if (playerExperience == null)
         {
-            gameObject.AddComponent<PlayerExperience>();
+            playerExperience = gameObject.GetComponent<PlayerExperience>();
         }
 
         // TODO: Check if playerMoney is null.
@@ -94,14 +96,14 @@ public class EnemyHealth : MonoBehaviour
 
         if (playerMoney  == null)
         {
-            gameObject.AddComponent<PlayerMoney>();
+            playerMoney = gameObject.GetComponent<PlayerMoney>();
         }
 
         // TODO: Check if playerKills is null.
         // If it is, find the PlayerKills component in the scene.
         if (playerKills == null)
         {
-            gameObject.AddComponent<PlayerKills>();
+            playerKills = gameObject.GetComponent<PlayerKills>();
         }
 
     }
@@ -279,10 +281,11 @@ public class EnemyHealth : MonoBehaviour
     {
         // Example: Check that the PlayerExperience reference exists
         // before calling one of its functions.
-        if (playerExperience != null)
-        {
-            playerExperience.AddXP(xpReward);
-        }
+                
+        Vector3 spawnPosition = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
+        GameObject expObject = Instantiate(expPrefab, spawnPosition, Quaternion.identity);
+        expObject.GetComponent<ExperienceDrop>().expValue = xpReward;
+        
 
         // TODO: Check that playerMoney is not null.
         // If it exists, call AddMoney and give it moneyReward.

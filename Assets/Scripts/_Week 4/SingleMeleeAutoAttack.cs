@@ -21,7 +21,7 @@ public class SingleMeleeAutoAttack : MonoBehaviour
     [Header("Attack Settings")]
     public bool attacksEnabled = true;
     public int damage = 5;
-    public float cooldown = 1f;
+    public float cooldown = 0.4f;
 
     [Header("Slash Position")]
     public float slashOffsetX = 1f;
@@ -187,7 +187,7 @@ public class SingleMeleeAutoAttack : MonoBehaviour
             // If it exists, set its flipX value based on facingRight.
             if (slashRenderer != null)
             {
-                Debug.Log(slashRenderer + " renderer");
+                
                 if (direction == 1f)
                 {
                     slashRenderer.flipX = false;

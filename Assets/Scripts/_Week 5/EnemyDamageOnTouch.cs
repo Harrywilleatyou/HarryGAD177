@@ -8,7 +8,7 @@ public class EnemyDamageOnTouch : MonoBehaviour
     public int contactDamage = 1;
 
     [Header("Knockback")]
-    public bool applyKnockback = true;
+    public bool applyKnockback = false;
     public float knockbackDistance = 0.5f;
 
     [Header("Audio Feedback")]
@@ -32,7 +32,7 @@ public class EnemyDamageOnTouch : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         // TODO: Check whether the object involved in the collision
         // has the Player tag.
@@ -56,11 +56,14 @@ public class EnemyDamageOnTouch : MonoBehaviour
         // - Print the damage dealt if debug logs are enabled.
         if (playerHealth != null )
         {
-            playerHealth.TakeDamage(contactDamage);
-            PlayHitSound();
-            if (showDebugLogs == true)
+            if (playerHealth.iFrame == playerHealth.iFrameMax)
             {
-                Debug.Log(contactDamage + "damage dealt");
+                playerHealth.TakeDamage(contactDamage);
+                PlayHitSound();
+                if (showDebugLogs == true)
+                {
+                    Debug.Log(contactDamage + "damage dealt");
+                }
             }
         }
 

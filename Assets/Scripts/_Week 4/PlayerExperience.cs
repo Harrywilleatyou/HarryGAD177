@@ -113,13 +113,13 @@ public class PlayerExperience : MonoBehaviour
         }
         // TODO: Increase the player's level by 1.
 
-        level += 1;
+        level = level + 1;
 
         // TODO: Print the player's new level to the Console.
 
         if (xpDebugLog == true)
         {
-            Debug.Log("Level increased to" + level);
+            Debug.Log("Level increased to " + level);
         }
 
         // TODO: Call the function that updates the Level UI.
@@ -127,7 +127,6 @@ public class PlayerExperience : MonoBehaviour
         UpdateXpUI();
 
         // TODO: Increase the XP required for the next level by 25.
-
         xpToNextLevel += 25;
 
         // TODO: Check whether the player still has enough XP to level up again.
@@ -143,6 +142,7 @@ public class PlayerExperience : MonoBehaviour
         // TODO: Call the function that updates the XP UI.
 
         UpdateXpUI();
+        Debug.Log("level is now " + level);
     }
 
     private void SetupXpSlider()
