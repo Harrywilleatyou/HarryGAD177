@@ -208869,9 +208869,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5647985133145020278, guid: 396ac43de0200d348bb8cdf7588ffc52, type: 3}
+      propertyPath: Priority
+      value: 97
+      objectReference: {fileID: 0}
+    - target: {fileID: 5647985133145020278, guid: 396ac43de0200d348bb8cdf7588ffc52, type: 3}
+      propertyPath: m_Volume
+      value: 0.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 5647985133145020278, guid: 396ac43de0200d348bb8cdf7588ffc52, type: 3}
       propertyPath: m_Resource
       value: 
-      objectReference: {fileID: 8300000, guid: 06be1c179b2faf240b1e50ef4cafa5f9, type: 3}
+      objectReference: {fileID: 8300000, guid: d22ea6cda406c78459cc7a921f5e316f, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

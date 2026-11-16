@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip walkSound;
     public bool showDebugWalkLogs = false;
+    public bool playWalkSound = false;
 
     private void Awake()
     {
@@ -151,6 +152,9 @@ public class PlayerMovement : MonoBehaviour
     }
     private void PlayWalkSound()
     {
+        if (playWalkSound == false)
+            return;
+
         if (audioSource == null)
         {
             return;
