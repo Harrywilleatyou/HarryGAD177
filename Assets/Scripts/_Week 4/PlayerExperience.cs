@@ -184,6 +184,8 @@ public class PlayerExperience : MonoBehaviour
 
         // TODO: Set the slider's current value to the player's current XP.
         xpSlider.value = currentXP;
+
+        UpdateLevelUI();
     }
 
     private void UpdateLevelUI()
