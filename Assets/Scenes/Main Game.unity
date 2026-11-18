@@ -203,6 +203,11 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 5232989873491534599, guid: 5321946108876674e969b3bfb89c0b53, type: 3}
   m_PrefabInstance: {fileID: 340654398}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &188904651 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 157119184333915092, guid: 396ac43de0200d348bb8cdf7588ffc52, type: 3}
+  m_PrefabInstance: {fileID: 620449587063578668}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &340654398
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -206709,6 +206714,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1453775657}
     - target: {fileID: 732181523225025607, guid: 3f50ffbc2ae69934e8de93e3f4d63b4c, type: 3}
+      propertyPath: musicPlayer
+      value: 
+      objectReference: {fileID: 188904651}
+    - target: {fileID: 732181523225025607, guid: 3f50ffbc2ae69934e8de93e3f4d63b4c, type: 3}
       propertyPath: inGameScreen
       value: 
       objectReference: {fileID: 1428385756}
@@ -208830,7 +208839,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4311456518288748170, guid: 396ac43de0200d348bb8cdf7588ffc52, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.60129
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4311456518288748170, guid: 396ac43de0200d348bb8cdf7588ffc52, type: 3}
       propertyPath: m_LocalPosition.y
