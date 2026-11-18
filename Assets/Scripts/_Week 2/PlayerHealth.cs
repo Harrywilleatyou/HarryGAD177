@@ -15,7 +15,7 @@ public class PlayerHealth : MonoBehaviour
 
     [Header("IFrames")]
     public float iFrame = 1;
-    public float iFrameMax = 150;
+    public float iFrameMax = 10;
 
     [Header("Health UI")]
     public Slider healthSlider;
@@ -52,8 +52,8 @@ public class PlayerHealth : MonoBehaviour
     public GameManager gameManager;
 
     [Header("Debug")]
-    public bool enableDebugKeys = true;
-    public bool showDebugLogs = true;
+    public bool enableDebugKeys = false;
+    public bool showDebugLogs = false;
 
     public Key debugDamageKey = Key.Space;
     public int minimumDebugDamage = 1;
@@ -230,7 +230,8 @@ public class PlayerHealth : MonoBehaviour
 
         // TODO: If debug logs are enabled, print the amount of damage taken
         // and the player's current health.
-        Debug.Log("Damage Taken: " + amount);
+        if (showDebugLogs == true)
+            Debug.Log("Damage Taken: " + amount);
 
 
         UpdateHealthUI();
@@ -287,7 +288,8 @@ public class PlayerHealth : MonoBehaviour
             return;
         }
 
-        audioSource.PlayOneShot(damageSound);
+        if (!audioSource.isPlaying) 
+            audioSource.PlayOneShot(damageSound);
 
         if (showDebugLogs == true)
         {

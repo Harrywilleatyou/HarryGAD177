@@ -19,7 +19,7 @@ public class EnemyDamageOnTouch : MonoBehaviour
     public float hitSoundVolume = 1f;
 
     [Header("Debug")]
-    public bool showDebugLogs = true;
+    public bool showDebugLogs = false;
 
     private void Start()
     {
@@ -62,7 +62,7 @@ public class EnemyDamageOnTouch : MonoBehaviour
                 PlayHitSound();
                 if (showDebugLogs == true)
                 {
-                    Debug.Log(contactDamage + "damage dealt");
+                    Debug.Log(contactDamage + " damage dealt");
                 }
             }
         }
@@ -106,7 +106,7 @@ public class EnemyDamageOnTouch : MonoBehaviour
     {
         // TODO: Check whether audioSource is null.
         // If it is, stop this function.
-
+        return;
         if (audioSource == null)
         {
             return;

@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     [Header("Spawner Tracking")]
     public int spawnerCount = 0;
 
+    public GameObject musicPlayer;
+
     [Header("Debug")]
     public bool enableDebugKeys = true;
     public bool showDebugLogs = true;
@@ -104,7 +106,7 @@ public class GameManager : MonoBehaviour
         // TODO: Set gameIsOver to true.
         gameIsOver = true;
 
-
+        StopMusic();
         // TODO: Hide the In Game screen.
 
         ShowInGameScreen(false);
@@ -227,4 +229,16 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(0);
 
     }
+
+    public void StopMusic()
+    {
+        AudioSource player = musicPlayer.GetComponent<AudioSource>();
+
+        if (musicPlayer = null)
+        { 
+            Debug.LogWarning("No Audio player found to pause");
+            return;
+        }
+        player.Stop();
+    }    
 }

@@ -9,6 +9,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -2763483081581979620, guid: 8ff923f66ffef6a48a59aea7c62edb6c, type: 3}
+      propertyPath: showDebugLogs
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2763483081581979620, guid: 8ff923f66ffef6a48a59aea7c62edb6c, type: 3}
       propertyPath: applyKnockback
       value: 0
       objectReference: {fileID: 0}
