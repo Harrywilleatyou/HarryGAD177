@@ -63,10 +63,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 50
+  spritePixelsToUnits: 20
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -157,10 +157,10 @@ TextureImporter:
       name: SpiritSpritesheet_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 18
-        width: 12
-        height: 11
+        x: 0
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,10 +179,10 @@ TextureImporter:
       name: SpiritSpritesheet_1
       rect:
         serializedVersion: 2
-        x: 18
-        y: 18
-        width: 12
-        height: 12
+        x: 16
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -201,10 +201,10 @@ TextureImporter:
       name: SpiritSpritesheet_2
       rect:
         serializedVersion: 2
-        x: 34
-        y: 18
-        width: 12
-        height: 12
+        x: 32
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -223,10 +223,10 @@ TextureImporter:
       name: SpiritSpritesheet_3
       rect:
         serializedVersion: 2
-        x: 3
-        y: 2
-        width: 12
-        height: 12
+        x: 0
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -245,10 +245,10 @@ TextureImporter:
       name: SpiritSpritesheet_4
       rect:
         serializedVersion: 2
-        x: 19
-        y: 2
-        width: 11
-        height: 11
+        x: 16
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,33 +263,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: SpiritSpritesheet_5
-      rect:
-        serializedVersion: 2
-        x: 24
-        y: 8
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8679f33945fb3ca20800000000000000
-      internalID: 3081516940020127592
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 2e6413e9c4433734bb9886635fde2734
     internalID: 0
     vertices: []
     indices: 
@@ -304,7 +282,6 @@ TextureImporter:
       SpiritSpritesheet_2: -6949241414265692710
       SpiritSpritesheet_3: 3844581368420683827
       SpiritSpritesheet_4: 7773155045076903311
-      SpiritSpritesheet_5: 3081516940020127592
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

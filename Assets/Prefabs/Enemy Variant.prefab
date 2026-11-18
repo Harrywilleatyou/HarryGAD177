@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -745724542126164848, guid: 8ff923f66ffef6a48a59aea7c62edb6c, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: fd4d42436a5c89740a0d1cb1eb62e6fb, type: 3}
     - target: {fileID: 2248978954845707533, guid: 8ff923f66ffef6a48a59aea7c62edb6c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.555
@@ -80,6 +84,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 6873999004024732710, guid: 1e0177df0d3d1a74f8c4b0bccabe7424, type: 3}
+    - target: {fileID: 7028387964393524517, guid: 8ff923f66ffef6a48a59aea7c62edb6c, type: 3}
+      propertyPath: maxHP
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7028387964393524517, guid: 8ff923f66ffef6a48a59aea7c62edb6c, type: 3}
       propertyPath: expPrefab
       value: 

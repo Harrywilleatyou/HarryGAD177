@@ -143,8 +143,11 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
+        
+
         if (isDead == true)
         {
+            PlayHitFeedback();
             return;
         }
 
