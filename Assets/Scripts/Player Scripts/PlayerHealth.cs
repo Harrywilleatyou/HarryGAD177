@@ -10,7 +10,7 @@ public class PlayerHealth : MonoBehaviour
     // Complete each section marked TODO.
 
     [Header("Health")]
-    public int maxHP = 10;
+    public int maxHP = 100;
     public int currentHP;
 
     [Header("IFrames")]

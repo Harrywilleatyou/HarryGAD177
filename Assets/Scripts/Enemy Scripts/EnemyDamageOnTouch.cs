@@ -5,7 +5,7 @@ public class EnemyDamageOnTouch : MonoBehaviour
     // Complete each section marked TODO.
 
     [Header("Damage")]
-    public int contactDamage = 1;
+    public int contactDamage = 2;
 
     [Header("Knockback")]
     public bool applyKnockback = false;

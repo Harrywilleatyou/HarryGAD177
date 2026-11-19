@@ -9,10 +9,17 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("Spawner Settings")]
     public GameObject enemyPrefab;
+    public int enemyNumber = 0;
+    public GameObject enemyPrefab0;
+    public GameObject enemyPrefab1;
+    public GameObject enemyPrefab2;
+    public GameObject enemyPrefab3;
     public float spawnInterval = 5f;
     public float spawnRadius = 5f;
-    public float spawnRangeUp = 3f;
+    public float spawnRangeUp = 6f;
     public float spawnRangeSide = 3f;
+    public float spawnDistanceX = 0f;
+    public float spawnDistanceY = 0f;
 
     [Header("Animation")]
     public Animator animator;
@@ -28,6 +35,8 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("Game Manager")]
     public GameManager gameManager;
+
+    public Timer timer;
 
     [Header("Debug")]
     public bool spawningEnabled = true;
@@ -64,7 +73,7 @@ public class EnemySpawner : MonoBehaviour
         // If it is, find the GameManager in the scene.
         if (gameManager == null)
             gameManager = GameObject.FindAnyObjectByType<GameManager>();
-
+        
     }
 
     private void Start()
@@ -85,6 +94,12 @@ public class EnemySpawner : MonoBehaviour
             gameManager.AddSpawner();
         }
 
+        if (timer == null)
+        {
+            timer = GameObject.FindAnyObjectByType<Timer>();
+        }
+
+        
     }
 
     private void Update()
@@ -241,6 +256,22 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
+
+        if (enemyNumber == 0)
+            enemyPrefab = enemyPrefab0;
+        else if (enemyNumber == 1)
+            enemyPrefab = enemyPrefab1;
+        else if (enemyNumber == 2)
+            enemyPrefab = enemyPrefab2;
+        else if (enemyNumber == 3)
+            enemyPrefab = enemyPrefab3;
+        else
+        {
+            Debug.LogWarning("enemyNumber out of range");
+            return;
+        }
+
+
         // TODO: Check whether enemyPrefab is null.
         // If it is:
         // - Print a warning if debug logs are enabled.
@@ -252,6 +283,35 @@ public class EnemySpawner : MonoBehaviour
             return;
         }
 
+        int roll = Random.Range(1, 5);
+
+        switch (roll)
+        {
+            case 1:
+                spawnRangeUp = 6;
+                spawnRangeSide = 3;
+                spawnDistanceX = 12;
+                spawnDistanceY = 0;
+                break;
+            case 2:
+                spawnRangeUp = 3;
+                spawnRangeSide = 9;
+                spawnDistanceX = 0;
+                spawnDistanceY = 6;
+                break;
+            case 3:
+                spawnRangeUp = 6;
+                spawnRangeSide = 3;
+                spawnDistanceX = -12;
+                spawnDistanceY = 0;
+                break;
+            case 4:
+                spawnRangeUp = 3;
+                spawnRangeSide = 9;
+                spawnDistanceX = 0;
+                spawnDistanceY = -6;
+                break;
+        }
 
         // Generate a random position inside the spawn radius.
         Vector2 randomOffsetY = Random.insideUnitCircle * spawnRangeUp;
@@ -262,7 +322,8 @@ public class EnemySpawner : MonoBehaviour
         Vector3 spawnPosition = new Vector3(this.transform.position.x + randomOffsetX.x, this.transform.position.y + randomOffsetY.y, this.transform.position.z);
 
 
-        
+        spawnPosition.x += spawnDistanceX;
+        spawnPosition.y += spawnDistanceY;
         // TODO: Instantiate enemyPrefab at spawnPosition.
         // Store the newly created GameObject in enemyObject.
         GameObject enemyObject = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);

@@ -378,6 +378,7 @@ public class EnemyHealth : MonoBehaviour
         }
         if (deathSound  == null)
         {
+            Debug.Log("Death sound null");
             return;
         }
         else 

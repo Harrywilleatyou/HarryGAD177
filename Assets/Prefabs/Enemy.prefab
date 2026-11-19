@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96c1a0b3772b27a4c9d9b2525f387f5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyChase
-  moveSpeed: 2
+  moveSpeed: 1
   target: {fileID: 0}
   animator: {fileID: 0}
   isMovingParameter: isMoving
@@ -221,6 +221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   maxHP: 10
   currentHP: 0
+  timer: {fileID: 0}
   healthScale: 1
   xpReward: 5
   xpScale: 1
@@ -240,7 +241,7 @@ MonoBehaviour:
   flashDuration: 0.1
   audioSource: {fileID: -745724542126164848}
   hitSound: {fileID: 8300000, guid: 0f5a45f6cc2087f488113e76105a616d, type: 3}
-  deathSound: {fileID: 0}
+  deathSound: {fileID: 8300000, guid: 0f5a45f6cc2087f488113e76105a616d, type: 3}
   onDie:
     m_PersistentCalls:
       m_Calls: []
@@ -261,8 +262,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2335885e2aa70cf4a8fd3e4a9b6e47be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDamageOnTouch
-  contactDamage: 1
-  applyKnockback: 1
+  contactDamage: 2
+  applyKnockback: 0
   knockbackDistance: 0.5
   audioSource: {fileID: -745724542126164848}
   hitSound: {fileID: 8300000, guid: 0f5a45f6cc2087f488113e76105a616d, type: 3}
