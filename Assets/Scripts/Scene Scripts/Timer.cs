@@ -8,14 +8,14 @@ public class Timer : MonoBehaviour
     public TextMeshProUGUI timeText;
     private float timePassed = 0f;
     [Header("Enemy")]
-    public GameObject enemyPrefab;
-    
-    
+    public float healthScale = 1f;
+    public float xpScale = 1f;
+
     public bool showTime = true;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        EnemyHealth enemy = enemyPrefab.GetComponent<EnemyHealth>();
+        
     }
 
     // Update is called once per frame

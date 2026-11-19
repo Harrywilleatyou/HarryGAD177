@@ -11,7 +11,7 @@ public class FistWeapon : MonoBehaviour
     public GameObject slashPrefab;
     public SpriteRenderer playerSpriteRenderer;
     public PlayerWeapons playerweapons;
-    public PlayerKills playerKills;
+  
 
     [Header("Animation")]
     public Animator animator;

@@ -11,6 +11,9 @@ public class EnemyHealth : MonoBehaviour
     [Header("Health")]
     public int maxHP = 10;
     public int currentHP;
+
+    public Timer timer;
+
     public float healthScale = 1f;
 
     [Header("Rewards")]
@@ -107,6 +110,11 @@ public class EnemyHealth : MonoBehaviour
         if (playerKills == null)
         {
             playerKills = gameObject.GetComponent<PlayerKills>();
+        }
+
+        if (timer == null)
+        {
+            timer = GameObject.FindAnyObjectByType<Timer>();
         }
 
     }
@@ -381,11 +389,11 @@ public class EnemyHealth : MonoBehaviour
 
     public void HealthScale()
     {
+        healthScale = timer.healthScale;
         maxHP = Mathf.CeilToInt(maxHP * healthScale);
         if (showScaleDebugLogs == true)
             if (showScaleDebugLogs == true)
             {
-                return;
                 Debug.Log("Max HP set to " + maxHP);
             }
     }
@@ -396,7 +404,6 @@ public class EnemyHealth : MonoBehaviour
         if (showScaleDebugLogs == true)
             if (showScaleDebugLogs == true)
             {
-                return;
                 Debug.Log("Experience Drop set to " + xpReward);
             }
     }
