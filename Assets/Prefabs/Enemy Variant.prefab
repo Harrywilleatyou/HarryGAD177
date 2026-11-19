@@ -90,7 +90,11 @@ PrefabInstance:
       objectReference: {fileID: 6873999004024732710, guid: 1e0177df0d3d1a74f8c4b0bccabe7424, type: 3}
     - target: {fileID: 7028387964393524517, guid: 8ff923f66ffef6a48a59aea7c62edb6c, type: 3}
       propertyPath: maxHP
-      value: 6
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7028387964393524517, guid: 8ff923f66ffef6a48a59aea7c62edb6c, type: 3}
+      propertyPath: xpReward
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7028387964393524517, guid: 8ff923f66ffef6a48a59aea7c62edb6c, type: 3}
       propertyPath: expPrefab

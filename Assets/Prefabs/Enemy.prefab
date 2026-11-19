@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a72a0579e2e0ea44b45900aaa9d8e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  maxHP: 3
+  maxHP: 10
   currentHP: 0
   xpReward: 5
   moneyReward: 1
@@ -230,7 +230,7 @@ MonoBehaviour:
   playerKills: {fileID: 0}
   coinPrefab: {fileID: 5612716690806517058, guid: b4a1302468ac2b240b964808c28c07ee, type: 3}
   coinsToDrop: 1
-  coinDropChance: 0.5
+  coinDropChance: 0.05
   coinSpreadRadius: 0.5
   spriteRenderer: {fileID: 0}
   useHitFlash: 1

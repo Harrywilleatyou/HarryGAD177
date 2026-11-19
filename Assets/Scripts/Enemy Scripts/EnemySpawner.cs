@@ -9,7 +9,7 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("Spawner Settings")]
     public GameObject enemyPrefab;
-    public float spawnInterval = 2f;
+    public float spawnInterval = 5f;
     public float spawnRadius = 5f;
     public float spawnRangeUp = 3f;
     public float spawnRangeSide = 3f;
@@ -260,15 +260,15 @@ public class EnemySpawner : MonoBehaviour
         // TODO: Calculate the final spawn position using
         // this GameObject's position and randomOffset.
         Vector3 spawnPosition = new Vector3(this.transform.position.x + randomOffsetX.x, this.transform.position.y + randomOffsetY.y, this.transform.position.z);
-            
 
+
+        
         // TODO: Instantiate enemyPrefab at spawnPosition.
         // Store the newly created GameObject in enemyObject.
-       
         GameObject enemyObject = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
 
 
-
+        
         // TODO: Add enemyObject to the spawnedEnemies collection.
         spawnedEnemies.Add(enemyObject);
 

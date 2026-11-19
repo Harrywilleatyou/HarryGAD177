@@ -9,11 +9,13 @@ public class EnemyHealth : MonoBehaviour
     // Complete each section marked TODO.
 
     [Header("Health")]
-    public int maxHP = 3;
+    public int maxHP = 10;
     public int currentHP;
+    public float healthScale = 1f;
 
     [Header("Rewards")]
     public int xpReward = 5;
+    public float xpScale = 1f;
     public int moneyReward = 1;
     public int killReward = 1;
     public GameObject expPrefab;
@@ -47,10 +49,11 @@ public class EnemyHealth : MonoBehaviour
     public UnityEvent onDie;
 
     [Header("Debug")]
-    public bool enableDebugKeys = true;
+    public bool enableDebugKeys = false;
     public bool showDebugLogs = false;
     public Key debugDamageKey = Key.U;
     public int debugDamageAmount = 1;
+    public bool showScaleDebugLogs = true;
 
     private Color originalColor;
     private bool isDead = false;
@@ -110,6 +113,8 @@ public class EnemyHealth : MonoBehaviour
 
     private void Start()
     {
+        HealthScale();
+        XpScale();
         currentHP = maxHP;
 
         if (showDebugLogs == true)
@@ -372,5 +377,19 @@ public class EnemyHealth : MonoBehaviour
             audioSource.PlayOneShot(deathSound); 
         }
 
+    }
+
+    public void HealthScale()
+    {
+        maxHP = Mathf.CeilToInt(maxHP * healthScale);
+        if (showScaleDebugLogs == true)
+            Debug.Log("Max HP set to " + maxHP);
+    }
+
+    public void XpScale()
+    {
+        xpReward = Mathf.CeilToInt(xpReward * xpScale);
+        if (showScaleDebugLogs == true)
+            Debug.Log("Max HP set to " + xpReward);
     }
 }
