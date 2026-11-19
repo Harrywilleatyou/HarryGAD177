@@ -221,7 +221,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   maxHP: 10
   currentHP: 0
+  healthScale: 1
   xpReward: 5
+  xpScale: 1
   moneyReward: 1
   killReward: 1
   expPrefab: {fileID: 0}
@@ -242,10 +244,11 @@ MonoBehaviour:
   onDie:
     m_PersistentCalls:
       m_Calls: []
-  enableDebugKeys: 1
-  showDebugLogs: 1
+  enableDebugKeys: 0
+  showDebugLogs: 0
   debugDamageKey: 35
   debugDamageAmount: 1
+  showScaleDebugLogs: 0
 --- !u!114 &-2763483081581979620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,7 +267,7 @@ MonoBehaviour:
   audioSource: {fileID: -745724542126164848}
   hitSound: {fileID: 8300000, guid: 0f5a45f6cc2087f488113e76105a616d, type: 3}
   hitSoundVolume: 1
-  showDebugLogs: 1
+  showDebugLogs: 0
 --- !u!82 &-745724542126164848
 AudioSource:
   m_ObjectHideFlags: 0

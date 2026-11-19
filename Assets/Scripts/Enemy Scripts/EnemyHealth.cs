@@ -53,7 +53,7 @@ public class EnemyHealth : MonoBehaviour
     public bool showDebugLogs = false;
     public Key debugDamageKey = Key.U;
     public int debugDamageAmount = 1;
-    public bool showScaleDebugLogs = true;
+    public bool showScaleDebugLogs = false;
 
     private Color originalColor;
     private bool isDead = false;
@@ -383,13 +383,21 @@ public class EnemyHealth : MonoBehaviour
     {
         maxHP = Mathf.CeilToInt(maxHP * healthScale);
         if (showScaleDebugLogs == true)
-            Debug.Log("Max HP set to " + maxHP);
+            if (showScaleDebugLogs == true)
+            {
+                return;
+                Debug.Log("Max HP set to " + maxHP);
+            }
     }
 
     public void XpScale()
     {
         xpReward = Mathf.CeilToInt(xpReward * xpScale);
         if (showScaleDebugLogs == true)
-            Debug.Log("Max HP set to " + xpReward);
+            if (showScaleDebugLogs == true)
+            {
+                return;
+                Debug.Log("Experience Drop set to " + xpReward);
+            }
     }
 }
