@@ -290,26 +290,26 @@ public class EnemySpawner : MonoBehaviour
             case 1:
                 spawnRangeUp = 6;
                 spawnRangeSide = 3;
-                spawnDistanceX = 12;
+                spawnDistanceX = 15;
                 spawnDistanceY = 0;
                 break;
             case 2:
                 spawnRangeUp = 3;
                 spawnRangeSide = 9;
                 spawnDistanceX = 0;
-                spawnDistanceY = 6;
+                spawnDistanceY = 9;
                 break;
             case 3:
                 spawnRangeUp = 6;
                 spawnRangeSide = 3;
-                spawnDistanceX = -12;
+                spawnDistanceX = -15;
                 spawnDistanceY = 0;
                 break;
             case 4:
                 spawnRangeUp = 3;
                 spawnRangeSide = 9;
                 spawnDistanceX = 0;
-                spawnDistanceY = -6;
+                spawnDistanceY = -9;
                 break;
         }
 

@@ -50,6 +50,7 @@ public class EnemyHealth : MonoBehaviour
 
     [Header("Death Event")]
     public UnityEvent onDie;
+    public EnemySpawner spawner;
 
     [Header("Debug")]
     public bool enableDebugKeys = false;
@@ -115,6 +116,11 @@ public class EnemyHealth : MonoBehaviour
         if (timer == null)
         {
             timer = GameObject.FindAnyObjectByType<Timer>();
+        }
+
+        if (spawner == null)
+        {
+            spawner = GameObject.FindAnyObjectByType<EnemySpawner>();
         }
 
     }
@@ -288,7 +294,7 @@ public class EnemyHealth : MonoBehaviour
         {
             onDie.Invoke();
         }
-
+        spawner.spawnedEnemies.Remove(gameObject);
         // Remove the enemy from the game.
         Destroy(gameObject);
     }
