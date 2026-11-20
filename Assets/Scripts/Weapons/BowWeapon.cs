@@ -24,14 +24,18 @@ public class BowWeapon : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip bowShoot;
     public bool shootSound = true;
+    public float audioSpeed;
 
     [Header("Attack Settings")]
     public bool attacksEnabled = true;
     public int damage = 5;
-    public float cooldown = 1.2f;
+    public float cooldown = 2.5f;
+    public int arrowDelay = 2000;
     public int pierce = 1;
     public int velocity = 20;
     public Vector2 arrowDirection;
+    public float maxSpeed = 0.75f;
+    public float minSpeed = 3.5f;
 
     [Header("Slash Position")]
     public float slashOffsetX = 0f;
@@ -70,7 +74,7 @@ public class BowWeapon : MonoBehaviour
 
         if (showDebugLogs == true)
         {
-            Debug.Log("FistAttack: Started. Damage = " + damage + ", Cooldown = " + cooldown);
+            Debug.Log("BowAttack: Started. Damage = " + damage + ", Cooldown = " + cooldown);
         }
 
         if (playerweapons == null)
@@ -89,7 +93,7 @@ public class BowWeapon : MonoBehaviour
 
     private void Update()
     {
-        if (playerweapons.fistWeapon == 0)
+        if (playerweapons.bowWeapon == 0)
         {
             return;
         }
@@ -117,7 +121,17 @@ public class BowWeapon : MonoBehaviour
 
 
             // Reset attackTimer to the cooldown value.
-            attackTimer = cooldown;
+            if (cooldown < minSpeed && cooldown > maxSpeed)
+                attackTimer = cooldown;
+            else if (cooldown > minSpeed)
+                attackTimer = minSpeed;
+            else if (cooldown < maxSpeed)
+                attackTimer = maxSpeed;
+            else
+            {
+                attackTimer = cooldown;
+                Debug.LogWarning("Bow Attack speed somehow out of range");
+            }
 
         }
     }
@@ -179,7 +193,11 @@ public class BowWeapon : MonoBehaviour
             return;
 
         PlayAudio();
-        await Task.Delay(2000);
+        arrowDelay = (int)(cooldown * 800);
+        await Task.Delay(arrowDelay);
+
+        if (bestTarget == null)
+            bestTarget = GetClosestEnemy();
 
         Vector2 point = bestTarget.transform.position - transform.position;
         float angle = Mathf.Atan2(point.y, point.x) * Mathf.Rad2Deg;
@@ -242,6 +260,9 @@ public class BowWeapon : MonoBehaviour
     {
         if (audioSource != null && shootSound == true)
         {
+            float t = Mathf.InverseLerp(0.75f, 2.5f, cooldown);
+            audioSource.pitch = Mathf.Lerp(3.34f, 1f, t);
+            
             audioSource.PlayOneShot(bowShoot);
         }
     }
