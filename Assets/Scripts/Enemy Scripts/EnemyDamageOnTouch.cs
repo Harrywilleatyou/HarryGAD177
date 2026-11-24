@@ -56,7 +56,7 @@ public class EnemyDamageOnTouch : MonoBehaviour
         // - Print the damage dealt if debug logs are enabled.
         if (playerHealth != null )
         {
-            if (playerHealth.iFrame == playerHealth.iFrameMax)
+            if (playerHealth.iFrame >= playerHealth.iFrameMax)
             {
                 playerHealth.TakeDamage(contactDamage);
                 PlayHitSound();

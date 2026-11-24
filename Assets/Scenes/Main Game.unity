@@ -365,8 +365,12 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8920733270119472732, guid: 5321946108876674e969b3bfb89c0b53, type: 3}
+      propertyPath: iFrame
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8920733270119472732, guid: 5321946108876674e969b3bfb89c0b53, type: 3}
       propertyPath: iFrameMax
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8920733270119472732, guid: 5321946108876674e969b3bfb89c0b53, type: 3}
       propertyPath: gameOverUI
@@ -404,6 +408,9 @@ PrefabInstance:
       addedObject: {fileID: 1389536092}
     - targetCorrespondingSourceObject: {fileID: 6804696972565752478, guid: 5321946108876674e969b3bfb89c0b53, type: 3}
       insertIndex: 11
+      addedObject: {fileID: 1389536103}
+    - targetCorrespondingSourceObject: {fileID: 6804696972565752478, guid: 5321946108876674e969b3bfb89c0b53, type: 3}
+      insertIndex: 12
       addedObject: {fileID: 1389536102}
     - targetCorrespondingSourceObject: {fileID: 6804696972565752478, guid: 5321946108876674e969b3bfb89c0b53, type: 3}
       insertIndex: -1
@@ -510,8 +517,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 404644105
+  m_SortingLayer: -3
   m_SortingOrder: -5
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -207503,8 +207510,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fistWeapon: 1
   bowWeapon: 0
-  tomeWeapon: 0
-  daggerWeapon: 1
+  tomeWeapon: 1
+  daggerWeapon: 0
 --- !u!114 &1389536092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207677,6 +207684,33 @@ MonoBehaviour:
   flipSlashWhenFacingLeft: 1
   showDebugLogs: 0
   attackTimer: 0
+--- !u!114 &1389536103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575174479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c86be6bdc2c51554a8077ab7dd8d1c1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tomeAuraPrefab: {fileID: 2260459342966029241, guid: e7f094d060b29134e8f1611537b43b06, type: 3}
+  playerSpriteRenderer: {fileID: 0}
+  playerweapons: {fileID: 0}
+  tomeAuraObj: {fileID: 0}
+  animator: {fileID: 0}
+  useAttackAnimation: 1
+  attackTriggerName: Attack
+  attacksEnabled: 1
+  damage: 4
+  cooldown: 1.5
+  maxSpeed: 0.45
+  minSpeed: 2.5
+  flipSlashWhenFacingLeft: 1
+  showDebugLogs: 0
+  attackTimer: 0
 --- !u!1 &1417866982 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1827959608072478624, guid: 3f50ffbc2ae69934e8de93e3f4d63b4c, type: 3}
@@ -207838,8 +207872,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 120154617
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -208181,8 +208215,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 404644105
+  m_SortingLayer: -3
   m_SortingOrder: -4
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}

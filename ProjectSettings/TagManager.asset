@@ -39,6 +39,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Backdrop
+    uniqueID: 404644105
+    locked: 0
+  - name: Bottom
+    uniqueID: 1945359981
+    locked: 0
+  - name: Obstacles
+    uniqueID: 120154617
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

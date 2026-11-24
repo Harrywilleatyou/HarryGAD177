@@ -81,7 +81,7 @@ public class DaggerWeapon : MonoBehaviour
 
     private void Update()
     {
-        if (playerweapons.fistWeapon == 0)
+        if (playerweapons.daggerWeapon == 0)
         {
             return;
         }
