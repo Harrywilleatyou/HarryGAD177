@@ -313,6 +313,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -7317384076726042226, guid: 73298f2df7111124090b266daac8df0d, type: 3}
     - target: {fileID: 5665016833282624604, guid: 5321946108876674e969b3bfb89c0b53, type: 3}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5665016833282624604, guid: 5321946108876674e969b3bfb89c0b53, type: 3}
       propertyPath: m_Interpolate
       value: 1
       objectReference: {fileID: 0}
@@ -209113,7 +209117,15 @@ PrefabInstance:
     - target: {fileID: 3685594692577444799, guid: 71ae10596454c5944b1a9cabfa8f43bc, type: 3}
       propertyPath: enemyPrefab1
       value: 
+      objectReference: {fileID: 2733793052484288663, guid: 147159679afa1f84a863f37b783dcfa4, type: 3}
+    - target: {fileID: 3685594692577444799, guid: 71ae10596454c5944b1a9cabfa8f43bc, type: 3}
+      propertyPath: enemyPrefab2
+      value: 
       objectReference: {fileID: 6468486783637727361, guid: 29d72057fdafcf8479d970fc31d651fa, type: 3}
+    - target: {fileID: 3685594692577444799, guid: 71ae10596454c5944b1a9cabfa8f43bc, type: 3}
+      propertyPath: enemyPrefab3
+      value: 
+      objectReference: {fileID: 4231735404989891075, guid: 95c1154f15ea85d48afe2fb489e7fafd, type: 3}
     - target: {fileID: 3685594692577444799, guid: 71ae10596454c5944b1a9cabfa8f43bc, type: 3}
       propertyPath: spawnRangeUp
       value: 6
