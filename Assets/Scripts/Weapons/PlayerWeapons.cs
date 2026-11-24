@@ -5,6 +5,7 @@ public class PlayerWeapons : MonoBehaviour
     public int fistWeapon = 1;
     public int bowWeapon = 0;
     public int tomeWeapon = 0;
+    public int daggerWeapon = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

@@ -1,7 +1,6 @@
-using System.Xml.Linq;
+
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 
@@ -25,7 +24,9 @@ public class FistWeapon : MonoBehaviour
     [Header("Attack Settings")]
     public bool attacksEnabled = true;
     public int damage = 5;
-    public float cooldown = 0.6f;
+    public float cooldown = 0.75f;
+    public float maxSpeed = 0.225f;
+    public float minSpeed = 1.5f;
 
     [Header("Slash Position")]
     public float slashOffsetX = 1f;
