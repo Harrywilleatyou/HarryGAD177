@@ -211,6 +211,12 @@ public class EnemyHealth : MonoBehaviour
         {
             flashRoutine = StartCoroutine(FlashOnHit());
         }
+        else if (showDebugLogs == true)
+        {
+            Debug.Log("UseHitFlash set to " + useHitFlash);
+            Debug.Log("spriterenderer is " + spriteRenderer);
+            Debug.Log("flashroutine is " + flashRoutine);
+        }
 
         // TODO: Check that both audioSource and hitSound are not null.
         // If they exist, play hitSound using the AudioSource.
@@ -222,10 +228,8 @@ public class EnemyHealth : MonoBehaviour
         {
             return;
         }
-        else
-        {
-            audioSource.PlayOneShot(hitSound);
-        }
+        audioSource.PlayOneShot(hitSound);
+        
     }
 
     private IEnumerator FlashOnHit()
