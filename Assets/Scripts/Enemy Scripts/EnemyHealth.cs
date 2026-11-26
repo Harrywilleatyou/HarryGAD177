@@ -70,7 +70,7 @@ public class EnemyHealth : MonoBehaviour
 
         if (spriteRenderer == null)
         {
-            gameObject.AddComponent<SpriteRenderer>();
+            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         }
         else
         {
@@ -87,7 +87,7 @@ public class EnemyHealth : MonoBehaviour
 
         if (audioSource == null)
         {
-            gameObject.AddComponent<AudioSource>();
+            audioSource = gameObject.AddComponent<AudioSource>();
         }
         
         // TODO: Check if playerExperience is null.
@@ -211,7 +211,7 @@ public class EnemyHealth : MonoBehaviour
         {
             flashRoutine = StartCoroutine(FlashOnHit());
         }
-        else if (showDebugLogs == true)
+        else if (showDebugLogs == false)
         {
             Debug.Log("UseHitFlash set to " + useHitFlash);
             Debug.Log("spriterenderer is " + spriteRenderer);
@@ -236,13 +236,19 @@ public class EnemyHealth : MonoBehaviour
     {
         if (spriteRenderer == null)
         {
+            Debug.Log("oopsie");
             flashRoutine = null;
             yield break;
         }
 
         // TODO: Change the SpriteRenderer's colour to the hit flash colour.
+        if (showDebugLogs == false)
+            Debug.Log(spriteRenderer.color);
 
         spriteRenderer.color = hitFlashColor;
+
+        if (showDebugLogs == false)
+            Debug.Log(spriteRenderer.color);
 
         yield return new WaitForSeconds(flashDuration);
 
