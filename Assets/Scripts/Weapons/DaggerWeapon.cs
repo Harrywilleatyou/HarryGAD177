@@ -30,6 +30,8 @@ public class DaggerWeapon : MonoBehaviour
     public int velocity = 10;
     public int killCount = 0;
     public int killGoal = 10;
+    public int damageGrowth = 1;
+    public int multishot = 0;
 
     [Header("Slash Position")]
     public float slashOffsetX = 0.5f;
@@ -81,7 +83,7 @@ public class DaggerWeapon : MonoBehaviour
 
     private void Update()
     {
-        if (playerweapons.daggerWeapon == 0)
+        if (playerweapons.daggerWeaponLevel == 0)
         {
             return;
         }
@@ -180,7 +182,7 @@ public class DaggerWeapon : MonoBehaviour
         {
             killCount -= killGoal;
             killGoal += 10;
-            damage += 1;
+            damage += damageGrowth;
             if (showDebugLogs == true)
                 Debug.Log("Damage increased to " + damage);
         }
@@ -249,6 +251,58 @@ public class DaggerWeapon : MonoBehaviour
         if (showDebugLogs == true)
         {
             Debug.Log("SingleMeleeAutoAttack: Auto slash spawned. FacingRight = " + facingRight + ", Damage = " + damage);
+        }
+    }
+    public void ItemDaggerBoost(int level)
+    {
+        switch (level)
+        {
+            case 1:
+                {
+                    break;
+                }
+
+
+            case 2:
+                {
+                    cooldown -= 0.2f;
+                    break;
+                }
+            case 3:
+                {
+                    cooldown -= 0.1f;
+                    pierce++;
+                    break;
+                }
+            case 4:
+                {
+                    damageGrowth += 1;
+                    velocity += 3;
+                    break;
+                }
+            case 5:
+                {
+                    multishot++;
+                    break;
+                }
+            case 6:
+                {
+                    pierce++;
+                    velocity += 3;
+                    break;
+                }
+            case 7:
+                {
+                    cooldown -= 0.25f;
+                    break;
+                }
+            case 8:
+                {
+                    damageGrowth += 1;
+                    pierce++;
+                    cooldown -= 0.2f;
+                    break;
+                }
         }
     }
 }

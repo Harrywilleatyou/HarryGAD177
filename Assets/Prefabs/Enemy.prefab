@@ -227,7 +227,7 @@ MonoBehaviour:
   xpScale: 1
   moneyReward: 1
   killReward: 1
-  expPrefab: {fileID: 0}
+  expPrefab: {fileID: 1333049728427612191, guid: 87ae6caf24d6989448d2900d920c7a95, type: 3}
   playerExperience: {fileID: 0}
   playerMoney: {fileID: 0}
   playerKills: {fileID: 0}
@@ -245,11 +245,13 @@ MonoBehaviour:
   onDie:
     m_PersistentCalls:
       m_Calls: []
+  spawner: {fileID: 0}
   enableDebugKeys: 0
   showDebugLogs: 0
   debugDamageKey: 35
   debugDamageAmount: 1
   showScaleDebugLogs: 0
+  isDead: 0
 --- !u!114 &-2763483081581979620
 MonoBehaviour:
   m_ObjectHideFlags: 0

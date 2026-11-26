@@ -22,6 +22,7 @@ public class TomeWeapon : MonoBehaviour
     public float cooldown = 1.5f;
     public float maxSpeed = 0.45f;
     public float minSpeed = 2.5f;
+    public float auraScale = 1f;
 
 
     [Header("Slash Visual")]
@@ -37,6 +38,8 @@ public class TomeWeapon : MonoBehaviour
     {
         // Check if playerSpriteRenderer is null.
         // If it is, get the SpriteRenderer from this GameObject or its children.
+
+        
 
         if (playerSpriteRenderer == null)
         {
@@ -63,7 +66,7 @@ public class TomeWeapon : MonoBehaviour
             playerweapons = gameObject.GetComponent<PlayerWeapons>();
 
         }
-        if (playerweapons.tomeWeapon >= 1)
+        if (playerweapons.tomeWeaponLevel >= 1)
             TomeSpawn();
 
 
@@ -71,14 +74,69 @@ public class TomeWeapon : MonoBehaviour
 
     private void Update()
     {
-        if (playerweapons.tomeWeapon <= 0)
+        if (playerweapons.tomeWeaponLevel <= 0)
         {
             return;
         }
+
+        if(tomeAuraObj == null)
+            tomeAuraObj = GameObject.FindAnyObjectByType<TomeAura>().gameObject;
     }
     public void TomeSpawn()
     {
         GameObject tomeAuraObj = Instantiate(tomeAuraPrefab, transform);
     }
 
+    public void ItemTomeBoost(int level)
+    {
+        switch (level)
+        {
+            case 1:
+                {
+                    TomeSpawn();
+                    break;
+                }
+
+
+            case 2:
+                {
+                    damage += 2;
+                    break;
+                }
+            case 3:
+                {
+                    cooldown -= 0.2f;
+                    break;
+                }
+            case 4:
+                {
+                    auraScale = 1.3f;
+                    break;
+                }
+            case 5:
+                {
+                    damage += 2;
+                    cooldown -= 0.1f;
+                    break;
+                }
+            case 6:
+                {
+                    auraScale = 1.8f;
+                    break;
+                }
+            case 7:
+                {
+                    damage += 2;
+                    break;
+                }
+            case 8:
+                {
+                    damage += 3;
+                    auraScale = 2.2f;
+                    cooldown -= 0.15f;
+                    break;
+                }
+        }
+
+    }
 }

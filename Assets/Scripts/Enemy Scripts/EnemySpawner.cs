@@ -14,12 +14,15 @@ public class EnemySpawner : MonoBehaviour
     public GameObject enemyPrefab1;
     public GameObject enemyPrefab2;
     public GameObject enemyPrefab3;
+    public GameObject specialEnemyPrefab;
     public float spawnInterval = 5f;
     public float spawnRadius = 5f;
     public float spawnRangeUp = 6f;
     public float spawnRangeSide = 3f;
     public float spawnDistanceX = 0f;
     public float spawnDistanceY = 0f;
+    public float spawnRateMult = 1f;
+    
 
     [Header("Animation")]
     public Animator animator;
@@ -134,7 +137,7 @@ public class EnemySpawner : MonoBehaviour
         // If it is:
         // - Reset spawnTimer to 0.
         // - Call SpawnEnemy.
-        if (spawnTimer >= spawnInterval)
+        if (spawnTimer >= (spawnInterval / spawnRateMult))
         {
             spawnTimer = 0;
             SpawnEnemy();
@@ -341,6 +344,81 @@ public class EnemySpawner : MonoBehaviour
         // TODO: If debug logs are enabled, print where the enemy spawned.
         if (showDebugLogs == true)
             Debug.Log("Enemy spawned at " + spawnPosition);
+
+    }
+
+    public void SpecialSpawnEnemy()
+    {
+
+        // TODO: Check whether enemyPrefab is null.
+        // If it is:
+        // - Print a warning if debug logs are enabled.
+        // - Stop this function.
+        if (specialEnemyPrefab == null)
+        {
+            if (showDebugLogs == true)
+                Debug.LogWarning("Spawner failed to find enemyPrefab");
+            return;
+        }
+
+        int roll = Random.Range(1, 5);
+
+        switch (roll)
+        {
+            case 1:
+                spawnRangeUp = 6;
+                spawnRangeSide = 3;
+                spawnDistanceX = 15;
+                spawnDistanceY = 0;
+                break;
+            case 2:
+                spawnRangeUp = 3;
+                spawnRangeSide = 9;
+                spawnDistanceX = 0;
+                spawnDistanceY = 9;
+                break;
+            case 3:
+                spawnRangeUp = 6;
+                spawnRangeSide = 3;
+                spawnDistanceX = -15;
+                spawnDistanceY = 0;
+                break;
+            case 4:
+                spawnRangeUp = 3;
+                spawnRangeSide = 9;
+                spawnDistanceX = 0;
+                spawnDistanceY = -9;
+                break;
+        }
+
+        // Generate a random position inside the spawn radius.
+        Vector2 randomOffsetY = Random.insideUnitCircle * spawnRangeUp;
+        Vector2 randomOffsetX = Random.insideUnitCircle * spawnRangeSide;
+
+        // TODO: Calculate the final spawn position using
+        // this GameObject's position and randomOffset.
+        Vector3 spawnPosition = new Vector3(this.transform.position.x + randomOffsetX.x, this.transform.position.y + randomOffsetY.y, this.transform.position.z);
+
+
+        spawnPosition.x += spawnDistanceX;
+        spawnPosition.y += spawnDistanceY;
+        // TODO: Instantiate enemyPrefab at spawnPosition.
+        // Store the newly created GameObject in enemyObject.
+        GameObject enemyObject = Instantiate(specialEnemyPrefab, spawnPosition, Quaternion.identity);
+
+
+
+        // TODO: Add enemyObject to the spawnedEnemies collection.
+        spawnedEnemies.Add(enemyObject);
+
+
+        // TODO: Call PlaySpawnFeedback and give it spawnPosition.
+        PlaySpawnFeedback(spawnPosition);
+
+
+        // TODO: If debug logs are enabled, print where the enemy spawned.
+        if (showDebugLogs == true)
+            Debug.Log("Special Enemy spawned at " + spawnPosition);
 
     }
 

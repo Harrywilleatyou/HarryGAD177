@@ -19,6 +19,8 @@ public class PlayerExperience : MonoBehaviour
     [Header("Level UI")]
     public TextMeshProUGUI levelText;
     public bool useLevelText = true;
+    public LevelMenu levelMenu;
+    public GameObject levelScreen;
 
     [Header("Debug")]
     public bool enableDebugKeys = true;
@@ -42,6 +44,10 @@ public class PlayerExperience : MonoBehaviour
         // TODO: Call the function that updates the Level UI.
 
         UpdateLevelUI();
+        
+        if (levelMenu == null)
+            levelMenu = GameObject.FindAnyObjectByType<LevelMenu>();
+
 
         // TODO: Print the player's starting level and XP to the Console.
         if (xpDebugLog == true)
@@ -123,12 +129,17 @@ public class PlayerExperience : MonoBehaviour
         }
 
         // TODO: Call the function that updates the Level UI.
-
+        
         UpdateXpUI();
+
+        
 
         // TODO: Increase the XP required for the next level by 25.
         xpToNextLevel += 25;
 
+        levelScreen.SetActive(true);
+        levelMenu = levelScreen.GetComponent<LevelMenu>();
+        levelMenu.OpenLevelMenu();
         // TODO: Check whether the player still has enough XP to level up again.
         // If they do, call LevelUp again.
         // This is recursion: a function calling itself.

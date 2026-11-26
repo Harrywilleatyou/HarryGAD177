@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a72a0579e2e0ea44b45900aaa9d8e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  maxHP: 50
+  maxHP: 25
   currentHP: 0
   timer: {fileID: 0}
   healthScale: 1
@@ -228,7 +228,7 @@ MonoBehaviour:
   xpScale: 1
   moneyReward: 1
   killReward: 1
-  expPrefab: {fileID: 0}
+  expPrefab: {fileID: 1333049728427612191, guid: 87ae6caf24d6989448d2900d920c7a95, type: 3}
   playerExperience: {fileID: 0}
   playerMoney: {fileID: 0}
   playerKills: {fileID: 0}
@@ -252,6 +252,7 @@ MonoBehaviour:
   debugDamageKey: 35
   debugDamageAmount: 1
   showScaleDebugLogs: 0
+  isDead: 0
 --- !u!114 &7233676110413613677
 MonoBehaviour:
   m_ObjectHideFlags: 0

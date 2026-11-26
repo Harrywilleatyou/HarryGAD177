@@ -24,9 +24,10 @@ public class FistWeapon : MonoBehaviour
     [Header("Attack Settings")]
     public bool attacksEnabled = true;
     public int damage = 5;
-    public float cooldown = 0.75f;
+    public float cooldown = 0.9f;
     public float maxSpeed = 0.225f;
     public float minSpeed = 1.5f;
+    public float fistScale = 1f;
 
     [Header("Slash Position")]
     public float slashOffsetX = 1f;
@@ -78,7 +79,7 @@ public class FistWeapon : MonoBehaviour
 
     private void Update()
     {
-        if (playerweapons.fistWeapon == 0)
+        if (playerweapons.fistWeaponLevel == 0)
         {
             return;
         }
@@ -110,6 +111,59 @@ public class FistWeapon : MonoBehaviour
             }
 
         }
+    }
+
+    public void ItemFistBoost(int level)
+    {
+        switch (level)
+        {
+            case 1:
+                {
+                    break;
+                }
+
+
+            case 2:
+                {
+                    damage += 2;
+                    break;
+                }
+            case 3:
+                {
+                    cooldown -= 0.1f;
+                    break;
+                }
+            case 4:
+                {
+                    damage += 3;
+                    fistScale = 1.2f;
+                    break;
+                }
+            case 5:
+                {
+                    cooldown -= 0.15f;
+                    break;
+                }
+            case 6:
+                {
+                    damage += 2;
+                    fistScale = 1.4f;
+                    break;
+                }
+            case 7:
+                {
+                    damage += 3;
+                    break;
+                }
+            case 8:
+                {
+                    damage += 5;
+                    fistScale = 1.7f;
+                    cooldown -= 0.15f;
+                    break;
+                }
+        }
+
     }
 
     private void UpdateAutoAttack()

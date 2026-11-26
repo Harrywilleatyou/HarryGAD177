@@ -60,7 +60,7 @@ public class EnemyHealth : MonoBehaviour
     public bool showScaleDebugLogs = false;
 
     private Color originalColor;
-    private bool isDead = false;
+    public bool isDead = false;
     private Coroutine flashRoutine;
 
     private void Awake()
@@ -72,10 +72,8 @@ public class EnemyHealth : MonoBehaviour
         {
             spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         }
-        else
-        {
-            spriteRenderer.color = originalColor;
-        }
+        originalColor = spriteRenderer.color;
+        
 
         // TODO: Check that spriteRenderer is not null.
         // If it exists, store its current colour in originalColor.
@@ -276,7 +274,7 @@ public class EnemyHealth : MonoBehaviour
 
         // TODO: Set isDead to true.
 
-        isDead = true;
+        
 
         // TODO: If debug logs are enabled,
         // print that the enemy has died.
@@ -292,11 +290,13 @@ public class EnemyHealth : MonoBehaviour
 
         // TODO: Call the function that drops coins.
 
-        DropCoins();
+        // DropCoins();
 
         // TODO: Call the function that plays the death sound.
 
         PlayDeathSound();
+
+        isDead = true;
 
         // Invoke any functions connected to the On Die event in the Inspector.
         // We will look at how UnityEvents work in more detail in later weeks.
@@ -406,8 +406,8 @@ public class EnemyHealth : MonoBehaviour
 
     public void HealthScale()
     {
-        healthScale = timer.healthScale;
-        maxHP = Mathf.CeilToInt(maxHP * healthScale);
+
+        maxHP = Mathf.CeilToInt(maxHP * timer.scaleMult);
         if (showScaleDebugLogs == true)
             if (showScaleDebugLogs == true)
             {
@@ -417,7 +417,7 @@ public class EnemyHealth : MonoBehaviour
 
     public void XpScale()
     {
-        xpReward = Mathf.CeilToInt(xpReward * xpScale);
+        xpReward = Mathf.CeilToInt(xpReward * timer.scaleMult);
         if (showScaleDebugLogs == true)
             if (showScaleDebugLogs == true)
             {

@@ -2,13 +2,17 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using TMPro;
 public class LevelMenu : MonoBehaviour
 {
     public GameObject levelMenu;
-    public int weaponSlotOne;
-    public int weaponSlotTwo;
-    public int weaponSlotThree;
+    public string option1;
+    public string option2;
+    public string option3;
     public PlayerWeapons playerWeapons;
+    public PlayerExperience playerExperience;
+    public int maxWeight;
+    public int itemRoll;
 
     [Header("Item Enhanceability")]
     public int fistEnhanceability = 1;
@@ -16,9 +20,19 @@ public class LevelMenu : MonoBehaviour
     public int tomeEnhanceability = 1;
     public int daggerEnhanceability = 1;
 
+    public string buttonText1;
+    public string buttonText2;
+    public string buttonText3;
+
+    public TextMeshProUGUI buttonTMP1;
+    public TextMeshProUGUI buttonTMP2;
+    public TextMeshProUGUI buttonTMP3;
+
+    [SerializeField] private List<string> weapons = new List<string>();
+
     void Start()
     {
-        levelMenu.SetActive(false);
+        playerWeapons = FindAnyObjectByType<PlayerWeapons>();
         
     }
 
@@ -28,60 +42,69 @@ public class LevelMenu : MonoBehaviour
         
     }
 
+    private void OnEnable()
+    {
+        RegenerateChoices();
+    }
+
+    void RegenerateChoices()
+    {
+        weapons.Clear();
+        weapons.Add("Fists");
+        weapons.Add("Bow and Arrow");
+        weapons.Add("Unholy Tome");
+        weapons.Add("Sacrifical Dagger");
+
+        buttonText1 = GetObtainedItems();
+        buttonText2 = GetObtainedItems();
+        buttonText3 = GetObtainedItems();
+
+        buttonTMP1.text = buttonText1;
+        buttonTMP2.text = buttonText2;
+        buttonTMP3.text = buttonText3;
+    }
+
     public void OpenLevelMenu()
     {
-        levelMenu.SetActive(true);
         Time.timeScale = 0f;
     }
 
     public void CloseLevelMenu()
     {
-        levelMenu.SetActive(false);
+        
         Time.timeScale = 1f;
+        
+        this.gameObject.SetActive(false);
+
     }
 
-    public void GetObtainedItems()
+    public string GetObtainedItems()
     {
-        if (playerWeapons.fistWeapon > 0)
-        {
-            if (playerWeapons.fistWeapon < 8)
-                fistEnhanceability = 3;
-            else
-                fistEnhanceability = 0;
-        }
-        else fistEnhanceability = 1;
-
-        if (playerWeapons.bowWeapon > 0)
-        {
-            if (playerWeapons.bowWeapon < 8)
-                bowEnhanceability = 3;
-            else
-                bowEnhanceability = 0;
-        }
-        else bowEnhanceability = 1;
-
-        if (playerWeapons.tomeWeapon > 0)
-        {
-            if (playerWeapons.tomeWeapon < 8)
-                tomeEnhanceability = 3;
-            else
-                tomeEnhanceability = 0;
-        }
-        else tomeEnhanceability = 1;
-
-        if (playerWeapons.daggerWeapon > 0)
-        {
-            if (playerWeapons.daggerWeapon < 8)
-                daggerEnhanceability = 3;
-            else
-                daggerEnhanceability = 0;
-        }
-        else daggerEnhanceability = 1;
-
+        int tempRandom = Random.Range(0, weapons.Count);
+        string result = weapons[tempRandom];
+        weapons.Remove(weapons[tempRandom]);
+        return result;
     }
     public void GenerateLevelOptions()
     {
-        // TODO: Add script to roll for items to display for upgrade ignoring items with a level of 8. Already obtained items have double weight.
-        Random.Range(0, 5);
+        // TODO: Make a list of items with an assigned result each and roll. Add the rolled item to first slot then remove from list and roll for next. After all 3 rolls add back items that have a level lower than 8.
+        return;
+        
+    }
+
+    public void LevelOptionOne()
+    {
+        playerWeapons.ItemLevelUp(buttonText1);
+        CloseLevelMenu();
+    }
+    public void LevelOptionTwo()
+    {
+        playerWeapons.ItemLevelUp(buttonText2);
+        CloseLevelMenu();
+    }
+    public void LevelOptionThree()
+    {
+        playerWeapons.ItemLevelUp(buttonText3);
+        CloseLevelMenu();
     }
 }

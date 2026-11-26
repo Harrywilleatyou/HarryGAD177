@@ -19,6 +19,8 @@ public class TomeAura : MonoBehaviour
     public float pulseAmount = 0.05f;
     public float rotationSpeed = 40f;
     private Vector3 initialScale;
+    private Vector3 mainScale;
+    public float scaleMult = 1;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -40,7 +42,7 @@ public class TomeAura : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerweapons.tomeWeapon > 0)
+        if (playerweapons.tomeWeaponLevel > 0)
         {
             if (attackTimer <= 0f)
             {
@@ -48,15 +50,17 @@ public class TomeAura : MonoBehaviour
                 attackTimer = cooldown;
 
             }
-
+            scaleMult = tomeWeapon.auraScale;
+            
             attackTimer -= Time.deltaTime;
 
+            mainScale = initialScale * scaleMult;
             // 1. Continuous, frame-rate independent rotation
             transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
 
             // 2. Smooth sine-wave pulsing
             float scaleOffset = Mathf.Sin(Time.time * pulseSpeed) * pulseAmount;
-            transform.localScale = initialScale + (initialScale * scaleOffset);
+            transform.localScale = mainScale + (mainScale * scaleOffset);
         }
     }
 
@@ -77,4 +81,5 @@ public class TomeAura : MonoBehaviour
             }
         }
     }
+
 }

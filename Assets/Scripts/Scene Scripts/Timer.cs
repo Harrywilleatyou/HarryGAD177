@@ -7,11 +7,13 @@ public class Timer : MonoBehaviour
 {
     public TextMeshProUGUI timeText;
     private float timePassed = 0f;
+    private float difficultyCooldown = 30f;
+    private float cooldownTimer = 0f;
+
     [Header("Enemy")]
     public EnemySpawner enemySpawner;
-    public float healthScale = 1f;
-    public float xpScale = 1f;
     public int spawnedEnemy = 1;
+    public float scaleMult = 1f;
 
     [Header("Debug")]
     public bool enableDebugKeys = false;
@@ -26,21 +28,21 @@ public class Timer : MonoBehaviour
     {
         if (enemySpawner == null)
             enemySpawner = GameObject.FindAnyObjectByType<EnemySpawner>();
-        
+        cooldownTimer = difficultyCooldown;
     }
 
     // Update is called once per frame
     void Update()
     {
         UpdateTime();
-
+        DifficultyScale();
         HandleDebugInput();
 
         int minutes = Mathf.FloorToInt(timePassed / 60);
         int seconds = Mathf.FloorToInt(timePassed % 60);
         timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
 
-        if (timePassed > 300 && timePassed < 600)
+        if (timePassed > 120 && timePassed < 240)
         {
             enemySpawner.enemyNumber = 1;
         }
@@ -52,11 +54,17 @@ public class Timer : MonoBehaviour
             timePassed += Time.deltaTime;
     }
 
-    public void difficultyScale()
+    public void DifficultyScale()
     {
-        // if (enemy != null)
-
-
+        cooldownTimer -= Time.deltaTime;
+        if (cooldownTimer <= 0)
+        {
+            cooldownTimer = difficultyCooldown;
+            scaleMult += 0.1f;
+            enemySpawner.spawnRateMult += 0.1f;
+            enemySpawner.SpecialSpawnEnemy();
+        }
+        
 
     }
 

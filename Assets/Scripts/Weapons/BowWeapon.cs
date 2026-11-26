@@ -93,7 +93,7 @@ public class BowWeapon : MonoBehaviour
 
     private void Update()
     {
-        if (playerweapons.bowWeapon == 0)
+        if (playerweapons.bowWeaponLevel == 0)
         {
             return;
         }
@@ -267,7 +267,59 @@ public class BowWeapon : MonoBehaviour
         }
     }
 
-    
-    
+    public void ItemBowBoost(int level)
+    {
+        switch (level)
+        {
+            case 1:
+                {
+                    break;
+                }
+
+
+            case 2:
+                {
+                    damage += 2;
+                    cooldown -= 0.3f;
+                    break;
+                }
+            case 3:
+                {
+                    damage += 3;
+                    pierce++;
+                    break;
+                }
+            case 4:
+                {
+                    cooldown -= 0.3f;
+                    velocity += 5;
+                    break;
+                }
+            case 5:
+                {
+                    damage += 4;
+                    break;
+                }
+            case 6:
+                {
+                    pierce++;
+                    damage += 4;
+                    break;
+                }
+            case 7:
+                {
+                    cooldown -= 0.4f;
+                    break;
+                }
+            case 8:
+                {
+                    damage += 5;
+                    pierce++;
+                    velocity += 5;
+                    break;
+                }
+        }
+    }
+
 }
 
